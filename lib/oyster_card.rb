@@ -30,14 +30,14 @@ MINIMUM_CHARGE = 1.0
     if (@balance < 1.0)
       "Not enough funds on card."
     else
-    @travel_log << entry_station
+    @travel_log << {"Entry Station" => entry_station}
     @in_use = true
     end
   end
 
   def touch_out?(exit_station)
     @balance = @balance - MINIMUM_CHARGE
-    @travel_log << exit_station
+    @travel_log << {"Exit Station" => exit_station}
     @in_use = false
   end
 
