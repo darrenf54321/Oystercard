@@ -58,14 +58,23 @@ describe Oystercard do
     expect(card.in_journey?).to eq true
   end
 
-  it "will remember the journey" do
+  it "will remember the last station of a journey" do
     subject.topup(5.0)
-    subject.touch_in?(entry_station)
-    subject.touch_out?(exit_station)
-    expect(subject.exit_station).to eq exit_station
+    subject.touch_in?(entry_station) do
+    subject.touch_out?(exit_station) do
+      expect(subject.exit_station).to eq exit_station
+    end
+    end
   end
 
-
+  it "will remember the journey" do
+    subject.topup(5.0)
+    subject.touch_in?(entry_station) do
+    subject.touch_out?(exit_station) do
+      expect(subject.exit_station).to include travel_log
+    end
+    end
+  end
 
   it "will onll allow a card to touch_in if it has a balance >= £1" do
   card.topup(0.5)
