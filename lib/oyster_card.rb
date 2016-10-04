@@ -1,5 +1,6 @@
 class Oystercard
 DEFAULT_BALANCE = 0.0
+MINIMUM_CHARGE = 1.0
 
   def initialize
     @balance = DEFAULT_BALANCE
@@ -31,6 +32,7 @@ DEFAULT_BALANCE = 0.0
   end
 
   def touch_out?
+    @balance = @balance - MINIMUM_CHARGE
     @in_use = false
   end
 

@@ -48,4 +48,11 @@ describe Oystercard do
   expect(card.touch_in?).to eq "Not enough funds on card."
   end
 
+   it "this will reduce the card balance by £1 on touch_out" do
+      card1 = card.topup(1.0)
+      subject.touch_in?
+      expect{ subject.touch_out?}.to change{subject.check_balance}.by(-Oystercard::MINIMUM_CHARGE)
+
+   end
+
 end
