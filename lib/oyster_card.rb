@@ -28,7 +28,7 @@ MINIMUM_CHARGE = 1.0
   def deduct(amount)
     @balance = @balance - amount
   end
-
+=begin
   def touch_in?(entry_station)
     if (@balance < 1.0)
       "Not enough funds on card."
@@ -57,5 +57,5 @@ MINIMUM_CHARGE = 1.0
     last_journey[:exit_station] = @exit_station
     @travel_log << last_journey
    end
-    
+=end
 end
