@@ -7,6 +7,9 @@ MINIMUM_CHARGE = 1.0
   def initialize
     @balance = DEFAULT_BALANCE
     @in_use = false
+    @entry_station = nil
+    @exit_station = nil
+    
     @travel_log = []
   end
 
@@ -30,21 +33,29 @@ MINIMUM_CHARGE = 1.0
     if (@balance < 1.0)
       "Not enough funds on card."
     else
-    @travel_log << {"Entry Station" => entry_station}
+    @entry_station = entry_station
     @in_use = true
     end
   end
 
   def touch_out?(exit_station)
     @balance = @balance - MINIMUM_CHARGE
-    @travel_log << {"Exit Station" => exit_station}
+    @exit_station = exit_station
+    create_journey
     @in_use = false
   end
 
   def in_journey?
     !!@in_use
   end
-
-
-
+  
+  private
+  
+   def create_journey
+    last_journey = Hash.new
+    last_journey[:entry_station] = @entry_station
+    last_journey[:exit_station] = @exit_station
+    @travel_log << last_journey
+   end
+    
 end
