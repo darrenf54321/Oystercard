@@ -1,6 +1,7 @@
 class Journey
-    
-attr_reader :entry_station
+
+=begin
+    attr_reader :entry_station
 
     def initialize(entry_station = "Manchester")
     @entry_station = nil
@@ -9,5 +10,5 @@ attr_reader :entry_station
     def start_journey(entry_station)
     @entry_station = entry_station
     end
-
+=end
 end
