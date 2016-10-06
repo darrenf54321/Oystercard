@@ -8,18 +8,20 @@ require 'station'
 require 'oyster_card'
 
 describe Journey do
-  
-  let(:entry_station) {Station.new(name: "London", zone: "Zone 1")}
-  let(:exit_station) {Station.new(name: "Manchester", zone: "Zone 2")}
-  subject { described_class.new(entry_station) }
 
+  let(:journey) { (Journey.new) }
+
+#It should be responsible for starting a journey
   it "should start a journey" do
-    expect(subject).to be_in_journey
+    journey.start_journey("London")
+    # expect(journey.travel_log).to include("London")
+    expect(journey.in_journey).to be true
   end
-  
-   it "should end a journey" do
-    subject.finish_journey(exit_station)
+
+#It should be responsible for finishing a journey
+   it "should finish a journey" do
+     journey.finish_journey("Exeter")
     expect(subject).not_to be_in_journey
   end
-  
+
 end

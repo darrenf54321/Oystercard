@@ -1,16 +1,20 @@
+require_relative 'journey'
+require_relative 'station'
+
 class Oystercard
 DEFAULT_BALANCE = 0.0
 MINIMUM_CHARGE = 1.0
 
   attr_reader :entry_station, :exit_station, :travel_log
 
-  def initialize
+  def initialize(journey: Journey)
     @balance = DEFAULT_BALANCE
     @in_use = false
-    @entry_station = nil
-    @exit_station = nil
-    
-    @travel_log = []
+    @journey = journey.new
+    #@entry_station = nil
+    #@exit_station = nil
+
+    #@travel_log = []
   end
 
   def check_balance
@@ -28,34 +32,22 @@ MINIMUM_CHARGE = 1.0
   def deduct(amount)
     @balance = @balance - amount
   end
-=begin
+
   def touch_in?(entry_station)
     if (@balance < 1.0)
       "Not enough funds on card."
     else
-    @entry_station = entry_station
-    @in_use = true
+      @journey.start_journey(entry_station)
     end
   end
 
   def touch_out?(exit_station)
-    @balance = @balance - MINIMUM_CHARGE
     @exit_station = exit_station
-    create_journey
+    @journey.finish_journey(exit_station)
+    @balance -= @journey.calculate_fare
     @in_use = false
   end
 
-  def in_journey?
-    !!@in_use
-  end
-  
-  private
-  
-   def create_journey
-    last_journey = Hash.new
-    last_journey[:entry_station] = @entry_station
-    last_journey[:exit_station] = @exit_station
-    @travel_log << last_journey
-   end
-=end
+
+
 end

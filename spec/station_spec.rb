@@ -12,7 +12,7 @@ describe Station do
 
   it "knows the name of the station" do
     station = Station.new("Manchester", 1)
-    expect(station.rail).to eq  ("Manchester")
+    expect(station.name).to eq  ("Manchester")
   end
 
 end
