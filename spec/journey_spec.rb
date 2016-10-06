@@ -30,5 +30,9 @@ describe Journey do
     expect(journey.in_journey?).to eq false
   end
 
+  it "should be responsible for calculating the fare of the journey" do
+
+  end
+
 
 end

@@ -2,7 +2,7 @@
 require 'station'
 
 describe Station do
-  #let(:station) { (Station.new) }
+  let(:station) { (Station.new) }
 
 
   it "knows which zone the station in" do

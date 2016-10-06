@@ -30,7 +30,7 @@ MINIMUM_CHARGE = 1.0
   end
 
   def deduct(amount)
-    @balance = @balance - amount
+    @balance -= amount
   end
 
   def touch_in?(entry_station)
