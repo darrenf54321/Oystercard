@@ -23,7 +23,7 @@ class Journey
   end
 
   def calculate_fare
-    Oystercard::MINIMUM_CHARGE * (@entry_station.zone - @exit_station.zone).abs
+    #Oystercard::MINIMUM_CHARGE * (@entry_station.zone - @exit_station.zone).abs
   end
 
 end

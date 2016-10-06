@@ -48,12 +48,6 @@ describe Oystercard do
     end
   end
 
-  # it "will know when the card is in journey" do
-  #   card.topup(1.0)
-  #   card.touch_in?(entry_station)
-  #   expect(card.in_use).to eq true
-  # end
-
   it "will remember the last station of a journey" do
     subject.topup(5.0)
     subject.touch_in?(entry_station) do

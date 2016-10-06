@@ -24,4 +24,11 @@ describe Journey do
     expect(subject).not_to be_in_journey
   end
 
+# It should also return whether or not the journey is complete.
+  it "should return whether or not the journey is complete" do
+    journey.finish_journey("Clapham")
+    expect(journey.in_journey?).to eq false
+  end
+
+
 end

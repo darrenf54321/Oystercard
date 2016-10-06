@@ -43,8 +43,9 @@ MINIMUM_CHARGE = 1.0
 
   def touch_out?(exit_station)
     @exit_station = exit_station
-    @journey.finish_journey(exit_station)
-    @balance -= @journey.calculate_fare
+    @balance -= 1
+    #@journey.finish_journey(exit_station)
+    #@balance -= @journey.calculate_fare
     @in_use = false
   end
 
