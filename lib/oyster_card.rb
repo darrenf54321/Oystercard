@@ -10,11 +10,8 @@ MINIMUM_CHARGE = 1.0
   def initialize(journey: Journey)
     @balance = DEFAULT_BALANCE
     @in_use = false
-    @journey = journey.new
-    #@entry_station = nil
-    #@exit_station = nil
-
-    #@travel_log = []
+    @travel_log = []
+    #@journey = journey.new
   end
 
   def check_balance
@@ -33,22 +30,24 @@ MINIMUM_CHARGE = 1.0
     @balance -= amount
   end
 
-  def touch_in?(entry_station)
+  def touch_in(entry_station)
     if (@balance < 1.0)
       "Not enough funds on card."
     else
-      @journey.start_journey(entry_station)
+      @entry_station = entry_station
+      travel_log << entry_station
+      @in_use = true
+      #@journey.start_journey(entry_station)
     end
   end
 
-  def touch_out?(exit_station)
+  def touch_out(exit_station)
     @exit_station = exit_station
     @balance -= 1
+    travel_log << exit_station
     #@journey.finish_journey(exit_station)
     #@balance -= @journey.calculate_fare
     @in_use = false
   end
-
-
 
 end

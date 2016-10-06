@@ -1,15 +1,17 @@
+#Let's create a new Journey class, it should be responsible for starting a journey, finishing a journey, calculating the fare of a journey, and returning whether or not the journey is complete.
+
 class Journey
 
-  attr_reader :in_journey, :journey
+  #attr_reader :in_journey, :journey
 
   def initialize
     @in_journey =  nil
-    @journey = []
+  #  @journey = []
   end
 
   def start_journey(start_station)
     @start_station = start_station
-    @journey << start_station
+    #@journey << start_station
     @in_journey = true
   end
 

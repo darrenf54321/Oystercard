@@ -9,13 +9,13 @@ require 'oyster_card'
 
 describe Journey do
 
-  let(:journey) { (Journey.new) }
+let(:journey) { (Journey.new) }
 
 #It should be responsible for starting a journey
   it "should start a journey" do
     journey.start_journey("London")
     # expect(journey.travel_log).to include("London")
-    expect(journey.in_journey).to be true
+    expect(journey.in_journey?).to be true
   end
 
 #It should be responsible for finishing a journey
@@ -29,10 +29,5 @@ describe Journey do
     journey.finish_journey("Clapham")
     expect(journey.in_journey?).to eq false
   end
-
-  it "should be responsible for calculating the fare of the journey" do
-
-  end
-
 
 end
