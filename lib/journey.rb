@@ -29,6 +29,15 @@ attr_reader :entry_station, :exit_station, :current_journey, :journeys
     @journeys << @current_journey
   end
 
+
+  def fare(fare = PENALTY_FARE)
+        if @entry_station == nil || @exit_station == nil
+          return PENALTY_FARE
+        else
+        fare = 1
+        end
+  end
+
   def in_journey?
     !!entry_station
   end

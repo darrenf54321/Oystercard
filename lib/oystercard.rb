@@ -13,6 +13,7 @@ class Oystercard
   def initialize(balance = 0)
     @balance = balance
     @journey_log = JourneyLog.new
+    @journey = Journey.new
   end
 
   def top_up(amount)
@@ -27,7 +28,7 @@ class Oystercard
 
   def touch_out(exit_station)
     @journey_log.finish(exit_station)
-    deduct(@journey_log.fare)
+    deduct(@journey.fare)
     #@journey_log.reset
   end
 

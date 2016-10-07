@@ -1,5 +1,5 @@
 require_relative 'journey'
-require_relative 'journey_log'
+
 
 
 class JourneyLog
@@ -25,13 +25,6 @@ class JourneyLog
       @journey.add_journey
     end
 
-    def fare(fare = PENALTY_FARE)
-        if @entry_station == nil || @exit_station == nil
-        return PENALTY_FARE
-        else
-        fare = 1
-        end
-    end
 
     def reset
       @entry_station = nil
